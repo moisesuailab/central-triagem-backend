@@ -1,51 +1,25 @@
 # Central de Triagem
 
 ## Descrição
-
-Essa aplicação auxiliará os servidores da Central de Triagem de Belo Horizonte para que possam gerenciar as certidões emitidas para o sistema PJe (Processo Judicial Eletrônico).
+Esta API servirá endpoints para pesquisa e persistência de dados relativos às certidões geradas através da aplicação [frontend](https://github.com/moisesuailab/central-triagem) da Central de Triagem
 
 ## Informações da plataforma
 
- - **Ambiente:** Aplicação web
+ - **Ambiente:** Node
 
-### Tipos de Usuários
+## DER - Modelo Conceitual
 
-1. Coordenador
-2. Triador
-3. Consultor
+![image](https://github.com/moisesuailab/central-triagem-backend/assets/157806024/ba5ad84f-f349-4bf5-af91-5429cf659a2b)
 
-## Principais funcionalidades
- 
- - Autenticação e autorização
- - Gerar certidões em PDF
- - Consulta de certidões geradas
- - Gerar relatórios
+### Rotas
 
-## Requisitos funcionais
+**Usuario**
 
-**Autenticação e autorização:**
+ - (POST) => /entrar
+ - (POST) => /cadastrar-usuario
 
-1. O usuário "Coordenador" pode visualizar e gerar relatórios gerenciais, bem como cadastrar usuários para os perfis de "Triador" e "Consultor".
-2. O usuário "Triador" e "Coordenador" podem gerar, consultar, fazer download e excluir uma  certidão.
-3. O usuario "Consultor" pode pesquisar e fazer o download de certidões geradas.
-
-**Gerar certidões em PDF**
-
-1. Só poderá existir uma certidão por processo.
-2. Uma certidão somente poderá ser gerada se não houver alguma outra anterior vinculada.
-
-**Consulta de certidões geradas**
-
-1. Mostrar protocolo do documento, número do processo vinculado, data e hora de criação do documento e matrícula do responsável nos detalhes da certidão apresentada na consulta.
-2. Deve mostrar registro de certidões anteriores que foram canceladas, bem como a data de cancelamento e matrícula do responsável pelo cancelamento nos detalhes.
-3. Poderá ser feito o download da certidão ou apenas a sua visualização.
-4. A certidão cancelada não pode ficar disponível para download e visualização.
-
-**Gerar relatórios**
-
-1. Apresentar dashboards desenvolvidos em Power BI.
-2. Possibilidade de realizar filtros nos painéis.
-3. Downloads de relatórios personalizados em PDF.
+**Certidao**
+- (GET) => /pesquisar-certidao?processo
 
  ## Tecnologias utilizadas no desenvolvimento do frontend
 
@@ -89,4 +63,4 @@ Essa aplicação auxiliará os servidores da Central de Triagem de Belo Horizont
     ```
 
 5. **Acessar no Navegador:**
-   Abra o navegador da web e digite o link indicado no terminal. Geralmente, o endereço é [http://localhost:5173](http://localhost:5173).
+   Abra o navegador da web e digite o link indicado no terminal. Geralmente, o endereço é [http://localhost:3333](http://localhost:3333).
