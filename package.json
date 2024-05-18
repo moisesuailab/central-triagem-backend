@@ -3,23 +3,26 @@
   "version": "1.0.0",
   "description": "Esta API servirá endpoints para pesquisa e persistência de dados relativos às certidões geradas através da aplicação [frontend](https://github.com/moisesuailab/central-triagem) da Central de Triagem",
   "main": "index.js",
+  "keywords": [
+    "Central de Triagem",
+    "Central",
+    "Triagem"
+  ],
+  "author": "Moisés | Patrick",
+  "license": "MIT",
   "scripts": {
     "dev": "ts-node-dev ./src/index.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
   "dependencies": {
-    "express": "^4.19.2"
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "http-status-codes": "^2.3.0"
   },
   "devDependencies": {
-    "@eslint/js": "^9.2.0",
     "@types/express": "^4.17.21",
-    "eslint": "^8.57.0",
-    "globals": "^15.2.0",
+    "@types/http-status-codes": "^1.2.0",
     "ts-node-dev": "^2.0.0",
-    "typescript": "^5.4.5",
-    "typescript-eslint": "^7.9.0"
+    "typescript": "^5.4.5"
   }
 }
