@@ -3,9 +3,9 @@ import { IUsuario } from '../../models';
 import { Knex } from '../../knex';
 
 
-export const getById = async (id: number): Promise<IUsuario | Error> => {
+export const getById = async (id: number): Promise<Omit<IUsuario, 'senha'> | Error> => {
   try {
-    const result = await Knex(ETableNames.usuario).select('*').where('id', '=', id).first();
+    const result = await Knex(ETableNames.usuario).select('id', 'nome', 'matricula', 'email', 'perfil', 'status').where('id', '=', id).first();
 
     if(result) return result;
 
