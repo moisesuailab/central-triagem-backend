@@ -8,7 +8,7 @@ export const getAll = async(page: number, limit: number, filter: string): Promis
     const result = await Knex(ETableNames.usuario).select('id', 'nome', 'matricula', 'email', 'perfil', 'status').where('nome', 'like', `%${filter}%`).offset((page - 1) * limit).limit(limit);
     
     return result;
-  } catch (error) {    
+  } catch (error) {
     return new Error('Erro ao consultar os registros');
   }
 };
