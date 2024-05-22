@@ -22,7 +22,7 @@ export const signIn = async (req: Request<{}, {}, IBodyProps>, res: Response) =>
   const { matricula, senha } = req.body;
 
   const usuario = await UsuariosProvider.getByMatricula(matricula);
-  if (usuario instanceof Error || usuario.status === 'inativo') {
+  if (usuario instanceof Error || usuario.status === 0) {
     return res.status(StatusCodes.UNAUTHORIZED).json({
       errors: {
         default: 'Usuario ou senha são inválidos'
@@ -39,7 +39,7 @@ export const signIn = async (req: Request<{}, {}, IBodyProps>, res: Response) =>
     });
   } else {
 
-    const accessToken = JWTService.sign({uid: usuario.id, urole: usuario.role});
+    const accessToken = JWTService.sign({uid: usuario.id, urole: usuario.perfil});
 
     if(accessToken === 'JWT_SECRET_NOT_FOUND') {
       return res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({

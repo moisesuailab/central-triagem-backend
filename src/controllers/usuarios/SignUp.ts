@@ -15,9 +15,8 @@ export const signUpValidation = validation((getSchema) => ({
       matricula: yup.string().required().min(8),
       email: yup.string().required().email().min(5),
       senha: yup.string().required().min(6),
-      role: yup.string().required().min(3),
-      status: yup.string().required(),
-      created_at: yup.string().required()
+      perfil: yup.string().required().min(3),
+      status: yup.number().integer().positive().min(0).max(1).required()
     })
   )
 }));

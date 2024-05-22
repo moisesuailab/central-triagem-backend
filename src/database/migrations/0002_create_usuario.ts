@@ -8,10 +8,10 @@ export async function up(knex: Knex) {
     table.string('nome').notNullable().checkLength('>', 3);
     table.string('matricula').index().unique().notNullable().checkLength('=', 8);
     table.string('email').index().unique().notNullable().checkLength('>=', 5);
-    table.string('senha').notNullable().checkLength('>=', 6);    
-    table.string('role').notNullable().checkLength('>=', 3);
-    table.enu('status', ['ativo', 'inativo'], {useNative: true, existingType: true, enumName: 'foo_type'}).notNullable();
-    table.timestamp('created_at', {useTz: true}).notNullable();
+    table.string('senha').notNullable().checkLength('>=', 8);    
+    table.string('perfil').notNullable().checkLength('>=', 3);
+    table.enu('status', [0, 1], {useNative: true, existingType: true, enumName: 'foo_type'}).notNullable();
+    table.timestamp('created_at', {useTz: true}).defaultTo(knex.fn.now());
     
     table.comment('Tabela usada para armazenar usuários do sistema');
   }).then( ()=> {
